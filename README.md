@@ -116,3 +116,7 @@ This will generate:
 ## Results
 
 The fine-tuned model will be better at following helpful instructions compared to the base model.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
