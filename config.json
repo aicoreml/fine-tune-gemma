@@ -1,0 +1,41 @@
+{
+    "model": {
+        "name": "unsloth/gemma-3-270m-it",
+        "max_seq_length": 4096,
+        "load_in_4bit": true
+    },
+    "training": {
+        "per_device_train_batch_size": 2,
+        "gradient_accumulation_steps": 4,
+        "warmup_steps": 5,
+        "max_steps": 60,
+        "learning_rate": 2e-4,
+        "weight_decay": 0.01,
+        "logging_steps": 10,
+        "optim": "adamw_8bit",
+        "lr_scheduler_type": "linear",
+        "seed": 3407
+    },
+    "lora": {
+        "r": 64,
+        "lora_alpha": 16,
+        "lora_dropout": 0,
+        "bias": "none"
+    },
+    "dataset": {
+        "name": "HuggingFaceH4/Helpful-Instructions",
+        "split": "train"
+    },
+    "output": {
+        "dir": "outputs",
+        "model_save_path": "gemma-3-270m-helpful-instruct"
+    },
+    "inference": {
+        "max_new_tokens": 200,
+        "test_prompts": [
+            "How can I improve my time management skills?",
+            "Explain the concept of machine learning in simple terms.",
+            "What are the benefits of regular exercise?"
+        ]
+    }
+}
